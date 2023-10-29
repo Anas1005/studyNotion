@@ -1,0 +1,31 @@
+.custom-toaster {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0.9;
+    transition: opacity 0.5s;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+  }
+  
+  .progress-bar {
+    height: 10px;
+    background-color: #555;
+    border-radius: 5px;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #00cc00; /* Green color for progress */
+    border-radius: 5px;
+    text-align: center;
+    line-height: 10px;
+    transition: width 0.3s ease;
+  }
+  

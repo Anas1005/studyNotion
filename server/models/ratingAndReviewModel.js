@@ -1,0 +1,28 @@
+const mongoose=require("mongoose");
+
+
+// Defining a Mongoose Schema.......
+const ratingAndReviewSchema=new mongoose.Schema({
+        user:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"User"
+        },
+        course:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Course"
+        },
+        rating:{
+            type:Number,
+            required:true
+        },
+        review:{
+            type:String,
+            required:true,
+            // maxLength:50
+        },
+     
+    }
+)
+
+//  Creating a Mongoose Model.....
+module.exports=mongoose.model("RatingAndReview",ratingAndReviewSchema); 

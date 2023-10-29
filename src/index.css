@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove outline for all elements */
+html,body{
+  overflow-x: hidden;
+}
+
+*{
+  box-sizing: border-box;
+  
+}
