@@ -24,9 +24,7 @@ const Home = () => {
         </div>
 
         <div className=" mt-4 w-[90%] text-center text-lg font-bold text-richblue-300">
-          lorembsjabdjsbjcd
-          cjnsjndjsbjbjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
-          ja jbsja jbs ajsa jsabjbs ajb dj
+        With our online coding courses, you can learn at your own pace from anywhere in the world and get access to a wealth of resources including hands-on projects, quizzes and personalized feedback from Instructors
         </div>
 
         <div className="flex flex-row gap-7 mt-8">
