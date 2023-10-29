@@ -12,7 +12,7 @@ var cors=require("cors");
 require("dotenv").config();
 
 
-  const FRONTEND_URL="https://study-notion-frontend-i8ok.onrender.com"
+  const FRONTEND_URL="https://studynotionfrontend.onrender.com"
 
 //  const FRONTEND_URL="http://localhost:3000"
 

@@ -1,4 +1,4 @@
-const BASE_URL="https://study-notion-be.onrender.com/api/v1/";
+const BASE_URL="https://studynotionbackend-00au.onrender.com/api/v1/";
   // const BASE_URL="http://localhost:4000/api/v1/"
 // const BASE_URL=process.env.REACT_APP_SERVER_URL;
 // console.log("UR is:"+BASE_URL)
