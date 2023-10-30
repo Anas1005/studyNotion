@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/core/HomePage/Button";
 import { CodeBlocks } from "../components/core/HomePage/CodeBlocks";
 
-
 const Home = () => {
   return (
     <div>
@@ -24,7 +23,10 @@ const Home = () => {
         </div>
 
         <div className=" mt-4 w-[90%] text-center text-lg font-bold text-richblue-300">
-        With our online coding courses, you can learn at your own pace from anywhere in the world and get access to a wealth of resources including hands-on projects, quizzes and personalized feedback from Instructors
+          With our online coding courses, you can learn at your own pace from
+          anywhere in the world and get access to a wealth of resources
+          including hands-on projects, quizzes and personalized feedback from
+          Instructors
         </div>
 
         <div className="flex flex-row gap-7 mt-8">
@@ -36,82 +38,69 @@ const Home = () => {
           </Button>
         </div>
 
-        <div className=" mx-5 my-12 shadow-blue-200">
-        <video muted loop autoPlay>
-        <source src={process.env.PUBLIC_URL + '/assets/Banner.mp4'} type="video/mp4" />
-
-        </video>
-
+        <div className=" mx-5 my-12 shadow-blue-200 ">
+          <video muted loop autoPlay>
+            <source
+              src={process.env.PUBLIC_URL + "/assets/Banner.mp4"}
+              type="video/mp4"
+            />
+          </video>
         </div>
 
         <div>
           <CodeBlocks
-          position={"lg:flex-row"}
-          heading={
-            <div className="text-4xl font-semibold">
-              Unlock Your <span className="text-blue-400">{" "} True Potential {" "}</span>
-              with our Online Courses
-            </div>
-          }
-          subHeading={"Our Courses are designed and taiught buindustry experts who have years of experience in coding and modern Techgnologies"}
-          btn1={
-            {
-              btnText:"Try It Yourself",
-              linkTo:"/signup",
-              active:true
+            position={"md:flex-row items-center"}
+            heading={
+              <div className="text-4xl font-semibold">
+                Unlock Your{" "}
+                <span className="text-blue-400"> True Potential </span>
+                with our Online Courses
+              </div>
             }
-          }
-          btn2={
-            {
-              btnText:"Learn",
-              linkTo:"/login",
-              active:false
+            subHeading={
+              "Our Courses are designed and taught by Industry Experts who have years of experience in coding and modern Techgnologies"
             }
-          }
-          codeBlock={`<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>Your Website Title</title>\n</head>\n<body>\n  <div class="hero-section">\n    <h1>Welcome to Our Website</h1>\n</html>`}
-
-codeColour={"text-yellow-25"}
-
-   
-          
+            btn1={{
+              btnText: "Try It Yourself",
+              linkTo: "/signup",
+              active: true,
+            }}
+            btn2={{
+              btnText: "Learn",
+              linkTo: "/login",
+              active: false,
+            }}
+            codeBlock={`<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>Your Website Title</title>\n</head>\n<body>\n  <div class="hero-section">\n    <h1>Welcome to Our Website</h1>\n</html>`}
+            codeColour={"text-yellow-25"}
           />
         </div>
 
         <div>
           <CodeBlocks
-          position={"lg:flex-row-reverse"}
-          heading={
-            <div className="text-4xl font-semibold">
-               Start Coding<span className="text-blue-400">{" "} In Seconds {" "}</span>
-              with our Online Courses
-            </div>
-          }
-          subHeading={"Our Courses are designed and taiught buindustry experts who have years of experience in coding and modern Techgnologies"}
-          btn1={
-            {
-              btnText:"Try It Yourself",
-              linkTo:"/signup",
-              active:true
+            position={"md:flex-row-reverse items-center"}
+            heading={
+              <div className="text-4xl font-semibold">
+                Start Coding<span className="text-blue-400"> In Seconds </span>
+                with our Online Courses
+              </div>
             }
-          }
-          btn2={
-            {
-              btnText:"Learn",
-              linkTo:"/login",
-              active:false
+            subHeading={
+              "Our Courses are designed and taught by Industry Experts who have years of experience in coding and modern Techgnologies"
             }
-          }
-          codeBlock={`<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>Your Website Title</title>\n</head>\n<body>\n  <div class="hero-section">\n    <h1>Welcome to Our Website</h1>\n</html>`}
-
-codeColour={"text-yellow-25"}
-
-   
-          
+            btn1={{
+              btnText: "Try It Yourself",
+              linkTo: "/signup",
+              active: true,
+            }}
+            btn2={{
+              btnText: "Learn",
+              linkTo: "/login",
+              active: false,
+            }}
+            codeBlock={`<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n  <title>Your Website Title</title>\n</head>\n<body>\n  <div class="hero-section">\n    <h1>Welcome to Our Website</h1>\n</html>`}
+            codeColour={"text-yellow-25"}
           />
         </div>
-
-
-
 
         {/* Section 2 */}
 

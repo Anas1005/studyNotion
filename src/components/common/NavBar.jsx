@@ -9,12 +9,14 @@ import { getAllCategories } from "../../services/operations/courseAPI";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { ProfileImage } from "../core/Auth/ProfileImage";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross1 } from "react-icons/rx";
 import { apiConnector } from "../../services/apiConnectors";
 import { endpoints } from "../../services/apis";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import toast from "react-hot-toast";
 
-export const NavBar = () => {
+export const NavBar = ({ isSideNavOpen, setIsSideNavOpen }) => {
   console.log("InNavBar");
   const location = useLocation();
   const { token } = useSelector((state) => state.auth);
@@ -24,6 +26,7 @@ export const NavBar = () => {
   const navigate = useNavigate();
   console.log("CurrentUser" + currentUser?.accountType);
   const { cart } = useSelector((state) => state.cart);
+  console.log("IsSideNavopen",isSideNavOpen)
   const totalItems = cart.length;
   const [subLinks, setSubLinks] = useState([]);
   // const  subLinks =[
@@ -56,20 +59,32 @@ export const NavBar = () => {
   };
 
   return (
-    <div className="flex h-14 items-center justify-center border-b-[1px] border border-b-richblack-700 bg-richblack-800">
-      <div className="flex w-11/12 max-w-maxContent items-center justify-between">
-        <Link to="/">
-          <img
-            src="https://nexrock.uk/wp-content/uploads/2022/04/Logo-Notion-White-al-vivo.png"
-            width={100}
-            height={68}
-            loading="lazy"
-            alt="Notion Logo"
-          />
-        </Link>
+    <div className={`flex flex-col md:flex-row h-[100vh] md:h-14 w-[71vw] inset-0  bg-richblack-900 md:bg-richblack-800 md:w-[100vw] bg-opacity-60 md:bg-opacity-200 transition-transform duration-100  ease-linear z-[71] md:translate-x-0 fixed items-center justify-center border-b-[1px] border border-black border-b-richblack-700
+    ${isSideNavOpen ? ' translate-x-0 ':' translate-x-[-71vw] '}
+    
+    `}>
+      <div className="flex flex-col h-[100%] w-[100%] md:w-11/12 md:flex-row gap-[22vh] p-[2rem] max-w-maxContent md:items-center justify-between  bg-opacity-80 md:bg-opacity-100  backdrop-blur-[32px] md:backdrop-blur-0">
+        <div className="flex justify-between  items-center">
+          <Link to="/">
+            <img
+              src="https://nexrock.uk/wp-content/uploads/2022/04/Logo-Notion-White-al-vivo.png"
+              width={100}
+              height={68}
+              loading="lazy"
+              alt="Notion Logo"
+            />
+          </Link>
+
+          {/* {isSideNavOpen && ( */}
+            <RxCross1
+              className={`text-white text-[2rem] cursor-pointer flex md:hidden transition-all duration-700 rotate-0   ${isSideNavOpen ? ' rotate-[180deg]':'rotate-[-180deg]'}`}
+              onClick={()=>setIsSideNavOpen(false)}
+            />
+          {/* )} */}
+        </div>
 
         <nav>
-          <ul className="flex gap-x-6 text-richblack-25">
+          <ul className="flex flex-col md:flex-row gap-[60px]  md:gap-x-6 text-richblack-25">
             {NavbarLinks.map((link, index) => (
               <li key={index} className=" cursor-pointer">
                 {link.title === "Catalog" ? (
@@ -80,6 +95,7 @@ export const NavBar = () => {
                           ? "text-yellow-25 hover:transition-all hover:text-yellow-25"
                           : "text-richblack-25  hover:transition-all hover:text-yellow-25"
                       }
+                      onClick={()=>setIsSideNavOpen(false)}
                     >
                       {link.title}
                     </p>
@@ -91,7 +107,8 @@ export const NavBar = () => {
                           <Link
                             to={`${subLink.link}`}
                             key={index}
-                            className="rounded-lg bg-transparent hover:bg-richblack-50"
+                            className="rounded-lg bg-transparent hover:bg-richblack-50" 
+                           
                           >
                             {subLink.title}
                           </Link>
@@ -109,6 +126,7 @@ export const NavBar = () => {
                           ? "text-yellow-25 hover:transition-all hover:text-yellow-25"
                           : "text-richblack-25  hover:transition-all hover:text-yellow-25"
                       }
+                      onClick={()=>setIsSideNavOpen(false)}
                     >
                       {link.title}
                     </p>

@@ -12,6 +12,7 @@ import { ContactUs } from "./pages/ContactUs";
 import { Main } from "./pages/Main";
 import { VideoDetails } from "./components/core/ViewCourse/VideoDetails";
 import { DashBoard } from "./pages/DashBoard";
+import {RxHamburgerMenu} from "react-icons/rx"
 import { ProtectorRoute } from "./pages/ProtectorRoute";
 import { Instructor } from "./components/core/dashboard/InstructorDashboard/Instructor";
 import { ViewCourse } from "./pages/ViewCourse";
@@ -26,12 +27,13 @@ import { UpdateCourse } from "./components/core/dashboard/UpdateCourse/index";
 import { Settings } from "./components/core/dashboard/Settings";
 import { useDispatch, useSelector } from "react-redux";
 import { SkeletonTheme } from "react-loading-skeleton";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 function App() {
   const { token } = useSelector((state) => state.auth);
   const { currentUser } = useSelector((state) => state.profile);
+  const [isSideNavOpen,setIsSideNavOpen]=useState(false);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -49,7 +51,10 @@ function App() {
   return (
     <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
       <SkeletonTheme baseColor="#313131" highlightColor="#525252">
-        <NavBar />
+        <NavBar isSideNavOpen={isSideNavOpen} setIsSideNavOpen={setIsSideNavOpen} />
+        {
+          <RxHamburgerMenu className=" text-white text-[1.5rem] m-[1rem] cursor-pointer flex md:flex" onClick={()=>setIsSideNavOpen(true)}/>
+        }
         <Routes>
           <Route
             path="/reset-password/:randomNumber/:userID"

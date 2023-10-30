@@ -13,8 +13,8 @@ export const CodeBlocks = ({
   codeColour,
 }) => {
   return (
-    <div className={`flex ${position} my-20 justify-between gap-10`}>
-      <div className="w-[50%] flex flex-col gap-8">
+    <div className={`flex flex-col ${position} my-20 justify-between gap-10`}>
+      <div className="md:w-[50%] flex flex-col gap-8">
         {heading}
         <div className=" text-richblack-300 font-bold">{subHeading}</div>
 
