@@ -13,7 +13,7 @@ export const ConfirmationModal = ({ modalData, isOpen }) => {
         <p className="font-bold text-xl text-richblack-100">{modalData.text1}</p>
         <p className="text-sm text-richblack-100">{modalData.text2}</p>
         <div className="flex gap-2 mt-4">
-          <IconBtn onClick={modalData?.btn1Handler} text={modalData?.btn1Text} />
+          <IconBtn onClickHandler={modalData?.btn1Handler} text={modalData?.btn1Text} />
           <button
             onClick={modalData?.btn2Handler}
             className="bg-red-500 hover:bg-red-600 text-white font-bold flex items-center gap-2 px-4 py-2 rounded-lg cursor-pointer"

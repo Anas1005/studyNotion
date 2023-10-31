@@ -1,86 +1,81 @@
-import React, { useState } from 'react';
-import { contactUs } from '../services/operations/authAPI'; // Import the API function for submitting the contact form
-import { useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
-import { ToastLoading } from '../components/common/ToastLoading';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react'
+import{ContactDetails} from '../components/core/ContactPage/ContactDetails'
+import{ContactUsForm} from '../components/core/ContactPage/ContactUsForm'
+import {Footer} from '../components/common/Footer'
+import { Spinner } from '../components/common/Spinner'
+// import ReviewsSlider from '../components/common/ReviewsSlider'
+// import { getAllReviews } from '../services/operations/otherServices';
+
 
 export const ContactUs = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    issueDescription: '',
-  });
-  const navigate = useNavigate();
-  const {isLoading,name}=useSelector((state)=>state.loader)
-  const dispatch=useDispatch();
+  const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  // useEffect(() => {
+  //   const fetchAllReviews = async () => {
+  //     setLoading(true);
+  //     const response = await getAllReviews();
+  //     if (response) {
+  //       setReviews(response);
+  //     }
+  //     setLoading(false);
+  //   }
+  //   fetchAllReviews();
+  // }, [])
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await contactUs(formData,dispatch); // Replace with your API function to submit the contact form
-      navigate('/'); // Redirect to the home page or a thank you page
-    //   toast.success('Your message has been submitted successfully!');
-    } catch (error) {
-      console.error('Error submitting contact form:', error);
-    //   toast.error('Failed to submit the contact form. Please try again later.');
-    }
-  };
 
   return (
-    <div className="mt-4 mx-auto max-w-md">
-    {
-      (isLoading && name==="contactUs")? (
-        <ToastLoading/>
-      ):(
-        <form className="grid grid-cols-1 gap-4 mt-4" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email" className="text-white block mb-1">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="border border-white rounded-lg px-4 py-2 w-full bg-white bg-opacity-10 backdrop-blur-md text-white"
-            placeholder="Enter Email"
-            value={formData.email}
-            onChange={handleInputChange}
-            // required
-          />
-        </div>
-        <div>
-          <label htmlFor="issueDescription" className="text-white block mb-1">
-            Issue Description
-          </label>
-          <textarea
-            id="issueDescription"
-            name="issueDescription"
-            rows="4"
-            className="border border-white rounded-lg px-4 py-2 w-full bg-white bg-opacity-10 backdrop-blur-md text-white"
-            placeholder="Describe your issue..."
-            value={formData.issueDescription}
-            onChange={handleInputChange}
-            // required
-          />
-        </div>
-        <div className="flex justify-center mt-4">
-          <button
-            type="submit"
-            className="bg-yellow-25 border border-white rounded-lg px-4 py-2 w-full text-black"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+    <div className='bg-richblack-900 text-white' >
+      <div className='w-11/12 mx-auto max-w-maxContent flex flex-col justify-between mt-20' >
 
-      )
-    }
-    
+        <div className='flex flex-col md:flex-row gap-10' >
+          <div className='lg:w-[40%]' >
+            <ContactDetails />
+          </div>
+
+
+          <div className=' lg:w-[60%] flex flex-col gap-3 border border-richblack-600 rounded-xl p-7 lg:p-14' >
+            <h1 className='text-4xl font-semibold text-richblack-5' >Got a Idea? We've got the skills. Let's team up</h1>
+
+            <p className='mb-8 text-richblack-300' >Tell us more about yourself and what you&apos;re got in mind.</p>
+
+            <ContactUsForm />
+          </div>
+        </div>
+
+        {/* Reviews Section */}
+        {/* <div className='mt-8' >
+          <h2 className='text-center text-3xl md:text-4xl font-semibold mt-8' >
+            Reviews from other learners
+          </h2> */}
+
+          {/* Reviews Slider */}
+          {/* <div className='' >
+            {
+              loading ?
+                (
+                  <div className='min-h-[150px] grid place-items-center' >
+                    <Spinner />
+                  </div>
+                )
+                :
+                (
+                  <div>
+                    <ReviewsSlider reviews={reviews} />
+                  </div>
+                )
+            }
+          </div>
+        </div> */}
+
+
+        
+      </div>
+
+      <div>
+        <Footer />
+      </div>
     </div>
-  );
-};
+  )
+}
+

@@ -92,7 +92,7 @@ export const  MyProfile = () => {
             <div className="flex flex-col">
               <IconBtn
                 text={"Edit"}
-                onClick={() => navigate("/dashboard/settings")}
+                onClickHandler={() => navigate("/dashboard/settings")}
               >
                 <FiEdit />
               </IconBtn>
@@ -115,7 +115,7 @@ export const  MyProfile = () => {
             <div className="flex flex-col">
               <IconBtn
                 text={"Edit"}
-                onClick={() => navigate("/dashboard/settings")}
+                onClickHandler={() => navigate("/dashboard/settings")}
               >
                 <FiEdit />
               </IconBtn>
@@ -175,7 +175,7 @@ export const  MyProfile = () => {
             <div className="flex flex-col">
               <IconBtn
                 text={"Edit"}
-                onClick={() => navigate("/dashboard/settings")}
+                onClickHandler={() => navigate("/dashboard/settings")}
               >
                 <FiEdit />
               </IconBtn>

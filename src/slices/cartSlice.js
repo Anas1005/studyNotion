@@ -1,6 +1,6 @@
 // cartSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { type } from '@testing-library/user-event/dist/type';
+// import { type } from '@testing-library/user-event/dist/type';
 
 const initialState = {
   cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [],

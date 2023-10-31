@@ -15,7 +15,7 @@ export const SideBarLink = ({ link, iconName, isLoading }) => {
     // Show a skeleton when isLoading is true
     return (
       <div className="relative px-8 py-2 text-sm font-medium">
-        <div className="absolute left-0 top-0 h-full w-[0.2rem] bg-yellow-50 opacity-0">
+        <div className="absolute left-0 top-0 h-full w-[0.2rem] bg-yellow-800 opacity-100">
           {/* Skeleton for the left bar */}
           <Skeleton height={20} width={2} />
         </div>
@@ -37,11 +37,11 @@ export const SideBarLink = ({ link, iconName, isLoading }) => {
     <NavLink
       to={link.path}
       className={`relative px-8 m-[2%]  rounded-[4px] py-2 text-sm font-medium hover:bg-richblack-900  transition-all duration-300 ease-in ${
-        matchRoute(link.path) ? 'bg-[#ffc30047]' : 'bg-opacity-0'
+        matchRoute(link.path) ? 'bg-yellow-800' : 'bg-opacity-0'
       }`}
     >
       <span
-        className={`absolute left-0 top-0 h-full w-[0.2rem] bg-yellow-50 ${
+        className={`absolute left-0 top-0 h-full w-[0.2rem] bg-yellow-800 ${
           matchRoute(link.path) ? 'opacity-100' : 'opacity-0'
         }`}
       ></span>

@@ -183,7 +183,7 @@ export const SignUp = () => {
       <div className="flex justify-center mt-4">
           <button
             type="submit"
-            className="bg-yellow-25 hover:transition-all hover:bg-opacity-60 border-white rounded-lg px-4 py-2  text-black font-semibold"
+            className="bg-yellow-50 hover:transition-all hover:bg-opacity-60 border-white rounded-lg px-4 py-2 w-[100%]  text-black font-semibold"
             onClick={handleSubmit}
           >
             Create Account

@@ -1,9 +1,10 @@
 import "./App.css";
-import Home from "./pages/Home";
+import {Home} from "./pages/Home";
 import { Routes, useNavigate } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { SignUp } from "./pages/SignUp";
 import { LogIn } from "./pages/LogIn";
+import {About} from "./pages/About";
 import { OTPVerification } from "./pages/OTPVerification";
 import { ForgotPassword } from "./pages/ForgotPassword";
 import { ResetPassword } from "./pages/ResetPassword";
@@ -51,10 +52,10 @@ function App() {
   return (
     <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
       <SkeletonTheme baseColor="#313131" highlightColor="#525252">
-        <NavBar isSideNavOpen={isSideNavOpen} setIsSideNavOpen={setIsSideNavOpen} />
-        {
+        <NavBar />
+        {/* {
           <RxHamburgerMenu className=" text-white text-[1.5rem] m-[1rem] cursor-pointer flex md:flex" onClick={()=>setIsSideNavOpen(true)}/>
-        }
+        } */}
         <Routes>
           <Route
             path="/reset-password/:randomNumber/:userID"
@@ -63,6 +64,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/about" element={<About />} />
           <Route
             path="/catalog/:categoryName/:categoryID"
             element={<Catalog />}

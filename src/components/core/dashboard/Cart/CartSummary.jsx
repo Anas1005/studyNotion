@@ -50,7 +50,7 @@ export const CartSummary = ({ totalSum }) => {
       ) : (
         <IconBtn
           text={"Check Out Now"}
-          onClick={() => handleBuyAllCourses()}
+          onClickHandler={() => handleBuyAllCourses()}
           customClasses={"w-full justify-center"}
           disabled={isLoading} // Disable the button while loading
         />

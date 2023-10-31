@@ -9,6 +9,7 @@ import { useEffect } from "react";
 
 
 export const Catalog = () => {
+  console.log("---------->","HelloJIIIIIIIIII");
   const frequentlyBoughtCourses = [
     {
       id: 1,

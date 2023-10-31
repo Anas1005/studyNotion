@@ -134,7 +134,7 @@ export const LogIn = () => {
               (
                 <button
               type="submit"
-              className="bg-yellow-25 hover:transition-all hover:bg-opacity-60 font-semibold border-white rounded-lg px-4 py-2 w-full text-black"
+              className="bg-yellow-50 hover:transition-all hover:bg-opacity-60 font-semibold w-[100%] border-white rounded-lg px-4 py-2  text-black"
             >Log In  </button>
               )}
            
