@@ -289,7 +289,7 @@ export const NavBar = () => {
                           <div className='flex flex-col capitalize' >
                             {
                               catalogs.map((catalog, index) => (
-                                <Link to={`${catalog?.link}}`} key={index} onClick={() => setIsMenuModalOpen(false)} >
+                                <Link to={`${catalog?.link}`} key={index} onClick={() => setIsMenuModalOpen(false)} >
                                   <p className=' rounded-lg py-2 pl-4' >{catalog.name}</p>
                                 </Link>
                               ))
