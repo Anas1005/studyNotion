@@ -169,8 +169,8 @@ export const Catalog = () => {
 
       <div className="text-white mx-[11%] py-8">
       <div className="space-y-3">
-      <h2 className="text-3xl text-white flex justify-center mt-4">Top Courses</h2>
-        <div className="grid grid-cols-2 gap-4  gap-y-11 ">
+      <h2 className="text-3xl text-white flexjustify-center mt-4">Top Courses</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4  gap-y-11 ">
           {topSellingCourses?.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}

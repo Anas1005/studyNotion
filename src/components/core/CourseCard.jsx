@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const CourseCard = ({ course }) => (
   <Link to={`/course/${course._id}`}>
-  <div className="w-[500px] text-white cursor-pointer">
+  <div className=" text-white cursor-pointer">
     <div className="flex flex-col ">
     <div className="flex text-yellow-25 mb-4 font-semibold text-l justify-center">{course?.category?.name}</div>
     <div className="flex justify-center">

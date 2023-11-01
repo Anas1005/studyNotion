@@ -1,68 +1,56 @@
 import React, { useEffect, useRef } from "react";
 import Swiper from "swiper";
-// import {Autoplay,Pagination,Navigation} from "swiper";
-import "swiper/swiper-bundle.css"; // Import Swiper styles
-import './scrollBar.css'; // If you have custom scrollbar styles
-import { GiNinjaStar } from "react-icons/gi";
-import { Course } from "./Course"; // Make sure to import your Course component
+import "swiper/swiper-bundle.css";
+import './scrollBar.css';
+import { Course } from "./Course";
 
+export const CourseSlider = ({ courses, type }) => {
+  const sliderRef = useRef(null);
+  let mySwiper;
 
+  useEffect(() => {
+    const breakpoints = {
+      450: {
+        slidesPerView: 1, // Set slidesPerView to 1 for screens narrower than 600px
+      },
+      768: {
+        slidesPerView: 2, // Set slidesPerView to 2 for screens between 600px and 900px wide
+      },
+      1200: {
+        slidesPerView: 3, // Set slidesPerView to 3 for screens wider than 900px
+      },
+    };
 
-// export const CourseSlider = ({courses,type}) => {
- 
-//     return (
-//   <div className="">
-//     {/* <h2 className="text-3xl text-white">Featured Courses</h2> */}
-//     <div className="flex space-x-4 custom-scrollbar ">
-//       {courses?.map((course) => (
-//         <Course key={course?.id} course={course} />
-//       ))}
-//     </div>
-//   </div>
-// );
-//       }
+    mySwiper = new Swiper(sliderRef.current, {
+      loop: true,
+      autoplay: {
+        delay: 2000,
+      },
+      spaceBetween: 20,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: breakpoints, // Use custom breakpoints here
+    });
 
+    return () => {
+      if (mySwiper) {
+        mySwiper.destroy(true, true);
+      }
+    };
+  }, []);
 
-
-
-
-  export const CourseSlider = ({courses,type}) => {
-    const sliderRef = useRef(null);
-    let mySwiper;
-  
-    useEffect(() => {
-      mySwiper = new Swiper(sliderRef.current, {
-        loop: true, // Enable infinite loop
-        autoplay: {
-          delay: 2000, // Auto-play delay in milliseconds
-        },
-        slidesPerView: 3,
-        spaceBetween: 20, // Adjust the space between slides as needed
-        pagination: {
-          el: ".swiper-pagination", // Pagination container
-          clickable: true, // Allow clicking on pagination bullets to navigate
-        },
-        // modules: [Autoplay, Pagination, Navigation]
-      });
-  
-      return () => {
-        if (mySwiper) {
-          mySwiper.destroy(true, true); // Cleanup Swiper when component unmounts
-        }
-      };
-    }, []);
-  
-    return (
-      <div className="swiper-container  overflow-hidden" ref={sliderRef}>
-        <div className="swiper-wrapper">
-          {courses?.map((course) => (
-            <div key={course?.id} className="swiper-slide">
-              <Course course={course} type={type} />
-            </div>
-          ))}
-        </div>
-        <div className="swiper-pagination"></div>
+  return (
+    <div className="swiper-container overflow-hidden " ref={sliderRef}>
+      <div className="swiper-wrapper">
+        {courses?.map((course) => (
+          <div key={course?.id} className="swiper-slide">
+            <Course course={course} type={type} />
+          </div>
+        ))}
       </div>
-    );
-  };
-  
+      <div className="swiper-pagination"></div>
+    </div>
+  );
+};
