@@ -145,11 +145,14 @@ export const VideoDetails = () => {
 
   const handleLectureCompletion = async () => {
     try {
+      toast.success("Huaa")
+      console.log("_____/l,l,ll,")
       const completedLectures = await updateCourseProgress(
         { subSectionID, courseID: currentCourse?._id },
         token,
         dispatch
       );
+      toast.success("Doneee")
       dispatch(setCompletedLectures(completedLectures));
       hideModal();
       // dispatch(setCompletedLectures());

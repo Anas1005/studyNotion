@@ -12,9 +12,9 @@ var cors=require("cors");
 require("dotenv").config();
 
 
-  const FRONTEND_URL="https://studynotionfrontend.onrender.com"
+//   const FRONTEND_URL="https://studynotionfrontend.onrender.com"
 
-    // const FRONTEND_URL="http://localhost:3000"
+    const FRONTEND_URL="http://localhost:3000"
 
 const PORT=process.env.PORT||4000;
 server.use(cors({
