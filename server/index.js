@@ -4,6 +4,7 @@ const courseRouter=require('./routers/courseRouter');
 const paymentRouter=require('./routers/paymentRouter');
 const profileRouter=require('./routers/profileRouter');
 const server=express();
+const os = require('os');
 const cookieParser=require('cookie-parser');
 const dbConnect=require('./config/database');
 const cloudinaryConnect = require('./config/cloudinary');
@@ -13,6 +14,16 @@ require("dotenv").config();
 
 
   const FRONTEND_URL="https://studynotionfrontend.onrender.com"
+
+
+
+// Get the array of CPUs
+const cpus = os.cpus();
+
+// Get the number of CPUs
+const numberOfCPUs = cpus.length;
+
+console.log(`Number of CPUs: ${numberOfCPUs}`);
 
     // const FRONTEND_URL="http://localhost:3000"
 
