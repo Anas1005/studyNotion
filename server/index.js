@@ -45,7 +45,7 @@ server.use(cookieParser());
 server.get("/",(req,res)=>{
     return res.json({
         success:true,
-        message:"Your Server is Up and Running..."
+        message:"Your Server is Up and Running......"
     })
 });
 
