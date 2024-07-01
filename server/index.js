@@ -63,6 +63,11 @@ if (cluster.isMaster) {
     dbConnect();
     cloudinaryConnect();
 
+    // Error handling for server
+    server.on('error', (error) => {
+        console.error(`Worker ${process.pid} encountered an error: ${error.message}`);
+    });
+
     // Start the Server.....
     server.listen(PORT, () => {
         console.log(`Worker ${process.pid} started and server running on port ${PORT}`);
