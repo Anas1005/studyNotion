@@ -13,16 +13,15 @@ const cluster = require('cluster');
 require("dotenv").config();
 
 const FRONTEND_URL = "https://studynotionfrontend.onrender.com";
-
-// Get the number of CPUs
-const numberOfCPUs = os.cpus().length;
+const PORT = process.env.PORT || 4000;
 
 if (cluster.isMaster) {
     console.log(`Master process is running with PID: ${process.pid}`);
-    console.log(`Number of CPUs: ${numberOfCPUs}`);
+    console.log(`Number of CPUs: ${os.cpus().length}`);
 
     // Fork worker processes
-    for (let i = 0; i < numberOfCPUs; i++) {
+    for (let i = 0; i < os.cpus().length; i++) {
+        console.log(`Forking a Worker`);
         cluster.fork();
     }
 
@@ -35,7 +34,6 @@ if (cluster.isMaster) {
     // Worker processes will run the server
     const server = express();
 
-    const PORT = process.env.PORT || 4000;
     server.use(cors({
         origin: FRONTEND_URL,
         credentials: true
@@ -68,8 +66,8 @@ if (cluster.isMaster) {
         console.error(`Worker ${process.pid} encountered an error: ${error.message}`);
     });
 
-    // Start the Server.....
-    server.listen(PORT, () => {
+    // Start the Server on the port specified by Render
+    server.listen(4000, () => {
         console.log(`Worker ${process.pid} started and server running on port ${PORT}`);
     });
 }
